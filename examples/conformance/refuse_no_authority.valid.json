@@ -1,0 +1,29 @@
+{
+  "name": "refuse_no_authority",
+  "task": {
+    "task_id": "refuse-no-authority",
+    "requested_action": "write_file",
+    "protected_action": true,
+    "claim": {
+      "requested_role": "act",
+      "requested_action": "write_file",
+      "protected_action": true
+    }
+  },
+  "agent": {
+    "agent_id": "agent.local",
+    "capabilities": ["write_file"]
+  },
+  "authority": {
+    "actor": "agent.local"
+  },
+  "evidence": {},
+  "uncertainty": {},
+  "attribution": {},
+  "budget": {
+    "budget_remaining": 10
+  },
+  "policy": {},
+  "expected_decision": "refuse",
+  "expected_reason_codes": ["protected_action_without_authority", "authority_missing"]
+}

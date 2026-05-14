@@ -1,0 +1,20 @@
+{
+  "name": "invalid_bad_uncertainty_bounds",
+  "task": {
+    "task_id": "invalid-bounds"
+  },
+  "agent": {
+    "agent_id": "agent.local"
+  },
+  "authority": {
+    "actor": "agent.local"
+  },
+  "evidence": {},
+  "uncertainty": {
+    "success_lower_bound": 1.5
+  },
+  "attribution": {},
+  "budget": {},
+  "policy": {},
+  "expected_decision": "act"
+}

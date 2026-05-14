@@ -1,0 +1,37 @@
+{
+  "name": "demo_implicit_feasible",
+  "task": {
+    "task_id": "demo-implicit"
+  },
+  "agent": {
+    "agent_id": "agent.local",
+    "capabilities": ["act"]
+  },
+  "authority": {
+    "actor": "agent.local"
+  },
+  "evidence": {},
+  "uncertainty": {},
+  "attribution": {},
+  "budget": {
+    "budget_remaining": 10
+  },
+  "policy": {
+    "mode": "demo",
+    "strict_authority": false,
+    "strict_evidence": false,
+    "require_claim_snapshot": false,
+    "require_replayability": false,
+    "require_public_coordination_state": false,
+    "require_audited_participation_interface": false,
+    "require_controller_certificate": false,
+    "require_explicit_service_expiry": false,
+    "require_service_certificate_digests": false,
+    "require_service_fault_certificate": false,
+    "allow_implicit_feasible_actions": true,
+    "min_capability_lower_bound_for_act": 0,
+    "min_success_lower_bound_for_act": 0
+  },
+  "expected_decision": "act",
+  "expected_reason_codes": ["act_conditions_satisfied"]
+}

@@ -1,0 +1,17 @@
+.env
+.venv/
+.clpg/
+*.sqlite
+*.db
+*.log
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.coverage
+htmlcov/
+__pycache__/
+*.py[cod]

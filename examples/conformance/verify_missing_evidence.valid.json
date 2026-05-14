@@ -1,0 +1,104 @@
+{
+  "name": "verify_missing_evidence",
+  "task": {
+    "task_id": "verify-missing-evidence",
+    "requested_action": "act",
+    "service_envelope": {
+      "certificates_verified": true,
+      "expires_at": "2030-01-01T00:00:00Z",
+      "posterior_family_nonempty": true,
+      "derived_certificate_families_nonempty": true,
+      "service_certificate_digests": ["sha256:0000000000000000000000000000000000000000000000000000000000000000"]
+    },
+    "public_state": {
+      "budget_remaining": 10,
+      "remaining_horizon": 1,
+      "verification_reserve": 2,
+      "trace_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "queue_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "role_ledger_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "linkage_graph_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "provenance_summary_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "ambient_model": {
+      "ambient_actions": ["act"],
+      "feasible_actions": ["act"],
+      "ambient_roles": ["act", "assist", "verify", "withdraw", "exit", "continue"],
+      "feasible_roles": ["act", "assist", "verify", "withdraw", "exit", "continue"],
+      "feasibility_mask_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "participation_interface": {
+      "protocol_state_id": "q.local",
+      "interface_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "certificate_digests": ["sha256:0000000000000000000000000000000000000000000000000000000000000000"],
+      "comparison_class_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "deviation_table_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "proxy_gain_table_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "baseline_interval_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "coverage_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "stability_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "omitted_deviation_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "controller_certificate": {
+      "feasibility_mask_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "controller_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "loss_model_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "safe_policy_set_nonempty": true
+    },
+    "claim": {
+      "requested_role": "act",
+      "requested_action": "act"
+    }
+  },
+  "agent": {
+    "agent_id": "agent.local",
+    "capabilities": ["act"],
+    "capability_lower_bound": 1,
+    "verification_capability": true
+  },
+  "authority": {
+    "actor": "agent.local",
+    "permitted_actions": ["act"],
+    "valid": true,
+    "authority_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "evidence": {
+    "required_evidence": ["source-record"],
+    "replayable": true,
+    "certificates_nonempty": true,
+    "verification_available": true,
+    "verification_capacity": 1,
+    "verification_portfolio": {
+      "ambient_target_classes": ["complete", "incomplete"],
+      "ambient_response_actions": ["request_evidence"],
+      "ambient_verifier_families": ["local-checker"],
+      "target_classes": ["complete", "incomplete"],
+      "response_actions": ["request_evidence"],
+      "available_verifier_families": ["local-checker"],
+      "slot_budget": 1,
+      "ambiguity_nonempty": true,
+      "safe_decision_set_nonempty": true,
+      "portfolio_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "stabilizable_certified": true,
+    "stabilizability_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "uncertainty": {
+    "success_lower_bound": 1,
+    "service_faults": {
+      "fault_profile_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "attribution": {
+    "bundle_partition_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "bundle_contractive_certified": true,
+    "attribution_complete": true
+  },
+  "budget": {
+    "budget_remaining": 10,
+    "verification_cost_upper_bound": 1
+  },
+  "policy": {},
+  "expected_decision": "verify",
+  "expected_reason_codes": ["evidence_missing", "verification_capacity_available"]
+}

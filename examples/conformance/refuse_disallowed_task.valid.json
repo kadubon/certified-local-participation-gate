@@ -1,0 +1,23 @@
+{
+  "name": "refuse_disallowed_task",
+  "task": {
+    "task_id": "refuse-disallowed",
+    "disallowed": true
+  },
+  "agent": {
+    "agent_id": "agent.local",
+    "capabilities": ["act"]
+  },
+  "authority": {
+    "actor": "agent.local"
+  },
+  "evidence": {},
+  "uncertainty": {},
+  "attribution": {},
+  "budget": {
+    "budget_remaining": 10
+  },
+  "policy": {},
+  "expected_decision": "refuse",
+  "expected_reason_codes": ["policy_disallows_task"]
+}

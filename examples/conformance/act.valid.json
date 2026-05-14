@@ -1,0 +1,92 @@
+{
+  "name": "act",
+  "task": {
+    "task_id": "act",
+    "requested_action": "act",
+    "requested_role": "act",
+    "service_envelope": {
+      "certificates_verified": true,
+      "expires_at": "2030-01-01T00:00:00Z",
+      "snapshot_staleness_seconds": 0,
+      "posterior_family_nonempty": true,
+      "derived_certificate_families_nonempty": true,
+      "service_certificate_digests": ["sha256:0000000000000000000000000000000000000000000000000000000000000000"]
+    },
+    "public_state": {
+      "budget_remaining": 10,
+      "remaining_horizon": 1,
+      "verification_reserve": 2,
+      "trace_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "queue_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "role_ledger_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "linkage_graph_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "provenance_summary_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "ambient_model": {
+      "ambient_actions": ["act"],
+      "feasible_actions": ["act"],
+      "ambient_roles": ["act", "assist", "verify", "withdraw", "exit", "continue"],
+      "feasible_roles": ["act", "assist", "verify", "withdraw", "exit", "continue"],
+      "feasibility_mask_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "participation_interface": {
+      "protocol_state_id": "q.local",
+      "interface_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "certificate_digests": ["sha256:0000000000000000000000000000000000000000000000000000000000000000"],
+      "comparison_class_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "deviation_table_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "proxy_gain_table_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "baseline_interval_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "coverage_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "stability_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "omitted_deviation_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "controller_certificate": {
+      "feasibility_mask_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "controller_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "loss_model_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "safe_policy_set_nonempty": true
+    },
+    "claim": {
+      "requested_role": "act",
+      "requested_action": "act"
+    },
+    "submitted_profile_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "agent": {
+    "agent_id": "agent.local",
+    "capabilities": ["act"],
+    "capability_lower_bound": 1
+  },
+  "authority": {
+    "actor": "agent.local",
+    "permitted_actions": ["act"],
+    "valid": true,
+    "authority_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "evidence": {
+    "replayable": true,
+    "certificates_nonempty": true,
+    "stabilizable_certified": true,
+    "stabilizability_certificate_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "uncertainty": {
+    "success_lower_bound": 1,
+    "service_faults": {
+      "fault_profile_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "attribution": {
+    "bundle_partition_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "bundle_contractive_certified": true,
+    "attribution_complete": true
+  },
+  "budget": {
+    "budget_remaining": 10
+  },
+  "policy": {},
+  "expected_decision": "act",
+  "expected_reason_codes": ["act_conditions_satisfied"],
+  "exact_reason_codes": true,
+  "expected_terminal_rule": "act_conditions_satisfied"
+}

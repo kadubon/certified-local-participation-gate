@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use CLPG, cite the source paper and this software artifact."
+title: "Certified Local Participation Gate"
+version: "0.1.0"
+date-released: "2026-05-14"
+authors:
+  - family-names: "Takahashi"
+    given-names: "K."
+license: "Apache-2.0"
+repository-code: "https://github.com/kadubon/certified-local-participation-gate"
+preferred-citation:
+  type: article
+  title: "When Should a Local Agent Act, Assist, Verify, Withdraw, or Exit? A Certified Local Micro-Theory of Open-Task Participation"
+  authors:
+    - family-names: "Takahashi"
+      given-names: "K."
+  year: 2026
+  doi: "10.5281/zenodo.19394600"
+  url: "https://doi.org/10.5281/zenodo.19394600"

@@ -1,0 +1,19 @@
+{
+  "name": "invalid_missing_policy",
+  "task": {
+    "task_id": "invalid-missing-policy"
+  },
+  "agent": {
+    "agent_id": "agent.local"
+  },
+  "authority": {
+    "actor": "agent.local"
+  },
+  "evidence": {},
+  "uncertainty": {},
+  "attribution": {},
+  "budget": {
+    "budget_remaining": 10
+  },
+  "expected_decision": "act"
+}
