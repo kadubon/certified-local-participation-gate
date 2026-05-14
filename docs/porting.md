@@ -14,7 +14,11 @@ The authoritative portability targets are:
 - conformance fixtures;
 - receipt and ledger digest verification.
 
-Use `CITATION.cff` and the source paper DOI, [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600), as the citation reference set for ports. The DOI identifies the theory source, while the conformance fixtures identify the v0.1.0 executable behavior expected from this repository.
+Use `CITATION.cff` and the source paper DOI,
+[10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600), as the
+citation reference set for ports. The DOI identifies the theory source, while
+the conformance fixtures identify the v0.1.x executable behavior expected from
+this repository.
 
 ## Required Steps
 
@@ -39,8 +43,12 @@ Use `CITATION.cff` and the source paper DOI, [10.5281/zenodo.19394600](https://d
 - Claim-level protected flags cannot weaken task-level protected flags.
 - Role-specific terminal behavior for `verify`, `withdraw`, `exit`, and `assist` must happen before task evidence/capability/success checks.
 - Certificate lineage must check declared digests against service certificate digests and policy external certificate digests.
-- `continue` must emit `act` with `continue_conditions_satisfied` in v0.1.0.
+- `continue` must emit `act` with `continue_conditions_satisfied` in v0.1.x.
+- This is a quotient mapping for compatibility, not a claim that source-paper
+  `continue` and `act` are theoretically identical.
 
 ## Non-Goals For Ports
 
-Ports do not need to implement robust LP optimization, Shapley attribution, signature validation, covariance proof checking, cloud integrations, or LLM calls to conform to v0.1.0.
+Ports do not need to implement robust LP optimization, Shapley attribution,
+signature validation, covariance proof checking, cloud integrations, or LLM
+calls to conform to v0.1.x.

@@ -153,9 +153,7 @@ def conformance_run(
             _print_json(result)
         else:
             console.print(
-                f"ok={result['ok']} "
-                f"passed={len(result['passed'])} "
-                f"failed={len(result['failed'])}"
+                f"ok={result['ok']} passed={len(result['passed'])} failed={len(result['failed'])}"
             )
             for failure in result["failed"]:
                 console.print(failure, style="red")

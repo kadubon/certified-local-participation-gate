@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "clpg"
-version = "0.1.0"
+version = "0.1.1"
 description = "Certified Local Participation Gate: deterministic local participation decisions for AI agents under declared observable records."
 readme = "README.md"
 requires-python = ">=3.10"

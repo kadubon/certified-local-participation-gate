@@ -326,7 +326,7 @@ class DecisionTrace(CLPGModel):
 
 class ParticipationReceipt(CLPGModel):
     schema_version: str = "1.0"
-    clpg_version: str = "0.1.0"
+    clpg_version: str = "0.1.1"
     created_at: datetime
     decision: ParticipationDecision
     reason_codes: list[ReasonCode]

@@ -41,13 +41,9 @@ def evaluate_corroboration(ctx: DecisionContext) -> DecisionOutcome | None:
             "corroboration_effective_size_sufficient",
             False,
             ReasonCode.CORROBORATION_EFFECTIVE_SIZE_INSUFFICIENT,
-            observed={
-                "effective_size_lower_bound": corroboration.effective_size_lower_bound
-            },
+            observed={"effective_size_lower_bound": corroboration.effective_size_lower_bound},
             threshold={
-                "min_corroboration_effective_size": (
-                    ctx.policy.min_corroboration_effective_size
-                )
+                "min_corroboration_effective_size": (ctx.policy.min_corroboration_effective_size)
             },
         )
         return ctx.degrade(

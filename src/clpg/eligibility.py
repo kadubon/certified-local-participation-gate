@@ -79,9 +79,7 @@ def evaluate_eligibility(ctx: DecisionContext) -> DecisionOutcome | None:
             False,
             ReasonCode.SNAPSHOT_STALENESS_EXCEEDS_TOLERANCE,
             observed={"snapshot_staleness_seconds": envelope.snapshot_staleness_seconds},
-            threshold={
-                "max_snapshot_staleness_seconds": ctx.policy.max_snapshot_staleness_seconds
-            },
+            threshold={"max_snapshot_staleness_seconds": ctx.policy.max_snapshot_staleness_seconds},
         )
         return ctx.degrade(
             ReasonCode.SNAPSHOT_STALENESS_EXCEEDS_TOLERANCE,

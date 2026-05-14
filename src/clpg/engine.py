@@ -167,17 +167,13 @@ class DecisionContext:
             return False
         tokens = set(self.agent.assist_capabilities)
         return (
-            "*" in tokens
-            or self.requested_action in tokens
-            or self.requested_role.value in tokens
+            "*" in tokens or self.requested_action in tokens or self.requested_role.value in tokens
         )
 
     def has_direct_capability(self) -> bool:
         tokens = set(self.agent.capabilities)
         return (
-            "*" in tokens
-            or self.requested_action in tokens
-            or self.requested_role.value in tokens
+            "*" in tokens or self.requested_action in tokens or self.requested_role.value in tokens
         )
 
 

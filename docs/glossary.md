@@ -3,6 +3,17 @@
 `ClaimSnapshot`
 : The declared atomic claim for strict mode. It carries the requested role, action, target references, metadata digest, budget demand, stake demand, and protected/external-effect flags.
 
+`ClaimRole.CONTINUE`
+: The source-paper `continue` role. In CLPG v0.1.x, a valid continue claim is
+represented as operational `decision="act"` with
+`continue_conditions_satisfied` in the receipt. This is a compatibility
+quotient, not a theoretical identity between `continue` and `act`.
+
+`ParticipationDecision`
+: The operational decision emitted by CLPG. v0.1.x exposes `act`, `assist`,
+`verify`, `withdraw`, `exit`, `refuse`, and `escalate`; it intentionally does
+not expose a first-class `continue` decision.
+
 `Decision-eligible snapshot`
 : A snapshot whose service envelope is certified, unexpired, fresh enough, and backed by nonempty posterior and certificate families.
 
@@ -26,3 +37,7 @@
 
 `ParticipationReceipt`
 : The canonical decision record emitted by CLPG. It binds inputs, checks, reason codes, decision trace, and digests.
+
+`Refuse` and `escalate`
+: CLPG operational non-admission and fallback outcomes. They are not
+source-paper semantic roles.

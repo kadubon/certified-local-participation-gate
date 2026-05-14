@@ -62,9 +62,7 @@ def evaluate_risk(ctx: DecisionContext) -> DecisionOutcome | None:
             "controller_loss_within_limit",
             False,
             ReasonCode.CONTROLLER_LOSS_EXCEEDS_LIMIT,
-            observed={
-                "controller_loss_upper_bound": ctx.uncertainty.controller_loss_upper_bound
-            },
+            observed={"controller_loss_upper_bound": ctx.uncertainty.controller_loss_upper_bound},
             threshold={
                 "max_controller_loss_upper_bound": ctx.policy.max_controller_loss_upper_bound
             },

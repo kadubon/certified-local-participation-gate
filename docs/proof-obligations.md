@@ -1,6 +1,7 @@
 # Proof Obligations
 
-CLPG v0.1.0 consumes declared certificates and bounds. It does not generate theorem-level certificates from the source paper.
+CLPG v0.1.1 consumes declared certificates and bounds. It does not generate
+theorem-level certificates from the source paper.
 
 Source paper DOI: [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600).
 

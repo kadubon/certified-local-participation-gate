@@ -1,12 +1,18 @@
 # Certified Local Participation Gate
 
-Certified Local Participation Gate (`clpg`) is a deterministic local gate for deciding whether an AI agent should `act`, `assist`, `verify`, `withdraw`, `exit`, `refuse`, or explicitly `escalate` on one open task round.
+Certified Local Participation Gate (`clpg`) is a deterministic local gate for deciding
+whether an AI agent should `act`, `assist`, `verify`, `withdraw`, `exit`, `refuse`,
+or explicitly `escalate` on one open task round.
 
 It answers a narrow operational question:
 
 > Given only declared observable task records, local capability, authority, evidence, uncertainty, attribution, cost, and policy thresholds, which participation mode is admissible right now?
 
-CLPG is derived from K. Takahashi, "When Should a Local Agent Act, Assist, Verify, Withdraw, or Exit? A Certified Local Micro-Theory of Open-Task Participation." Source paper DOI: [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600). v0.1.0 is a small reference kernel, not a full implementation of every theorem in the paper.
+CLPG is derived from K. Takahashi, "When Should a Local Agent Act, Assist, Verify,
+Withdraw, or Exit? A Certified Local Micro-Theory of Open-Task Participation."
+Source paper DOI: [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600).
+v0.1.1 is a small reference kernel, not a full implementation of every theorem
+in the paper.
 
 ## What Problem This Solves
 
@@ -22,7 +28,11 @@ CLPG makes that first gate deterministic and reviewable. It produces a receipt t
 
 ## Why This Exists
 
-The source paper treats participation as a one-round local decision over a certified public snapshot. It does not treat public services as trusted oracles. It requires declared envelopes, finite feasible masks, audited participation interfaces, verification portfolios, service-fault bounds, and certificate-derived public objects.
+The source paper treats participation as a one-round local decision over a
+certified public snapshot. It does not treat public services as trusted
+oracles. It requires declared envelopes, finite feasible masks, audited
+participation interfaces, verification portfolios, service-fault bounds, and
+certificate-derived public objects.
 
 CLPG turns those theoretical requirements into a practical Python package:
 
@@ -47,11 +57,36 @@ CLPG can tell you:
 
 Every valid decision, including `refuse`, exits normally from the CLI. A refusal is a successful gate decision, not a runtime error.
 
+## Source-Paper Roles Vs. CLPG Decisions
+
+The source paper distinguishes the semantic roles `continue`, `act`, `assist`,
+`verify`, `withdraw`, and `exit`.
+
+CLPG v0.1.x keeps a smaller operational decision enum:
+`act`, `assist`, `verify`, `withdraw`, `exit`, `refuse`, and `escalate`.
+
+For v0.1.x API and conformance compatibility, a valid source-paper `continue`
+claim is represented as:
+
+```json
+{
+  "decision": "act",
+  "reason_codes": ["continue_conditions_satisfied"]
+}
+```
+
+This is a quotient mapping, not a claim that `continue` and `act` are
+theoretically identical. `refuse` and `escalate` are CLPG operational
+non-admission and fallback outcomes, not source-paper semantic roles.
+
+A first-class `ParticipationDecision.CONTINUE` is deferred to v0.2.0 because
+it would change the public enum and conformance surface.
+
 ## What CLPG Does Not Certify
 
 CLPG does not decide objective truth, morality, law, compliance, institutional authorization, or task success.
 
-v0.1.0 consumes declared certificate digests and declared bounds. It does not:
+v0.1.1 consumes declared certificate digests and declared bounds. It does not:
 
 - verify upstream service signatures;
 - solve the robust controller LP;
@@ -60,7 +95,7 @@ v0.1.0 consumes declared certificate digests and declared bounds. It does not:
 - validate covariance certificates;
 - call an LLM, cloud service, API key, or network dependency.
 
-Stronger paper-level claims require external certificates that CLPG v0.1.0 does not generate.
+Stronger paper-level claims require external certificates that CLPG v0.1.1 does not generate.
 
 ## How The Data Flows
 
@@ -89,7 +124,7 @@ Demo mode relaxes these requirements for examples and education. It is not the d
 
 ## Install From Source
 
-This v0.1.0 release is GitHub/source distribution only. There is no PyPI publish workflow.
+This v0.1.1 release is GitHub/source distribution only. There is no PyPI publish workflow.
 
 ```bash
 uv sync --locked --dev
@@ -146,7 +181,10 @@ The strict conformance fixture is the easiest complete example:
 uv run clpg conformance run examples/conformance --json
 ```
 
-Inspect `examples/conformance/act.valid.json` to see a minimal strict `act` case. It includes the claim, service certificate family, public coordination state, feasibility mask, audited interface, controller certificate, authority binding, evidence state, service fault certificate digest, and policy.
+Inspect `examples/conformance/act.valid.json` to see a minimal strict `act`
+case. It includes the claim, service certificate family, public coordination
+state, feasibility mask, audited interface, controller certificate, authority
+binding, evidence state, service fault certificate digest, and policy.
 
 ## CLI
 
@@ -186,7 +224,9 @@ Input/schema errors exit `2`. Runtime and ledger verification errors exit `1`. V
 | Direct capability missing for `act` | `assist`, then `verify`, then `withdraw` |
 | All strict `act` conditions pass | `act` |
 
-`continue` is a source-paper role. For v0.1.0 API compatibility, a valid continue claim is emitted as `act` with `continue_conditions_satisfied` in the receipt trace.
+`continue` is a source-paper role. For v0.1.x API compatibility, a valid
+continue claim is emitted as `act` with `continue_conditions_satisfied` in the
+receipt trace.
 
 ## Receipts And Ledgers
 
@@ -251,7 +291,11 @@ uv build
 
 ## Citation
 
-If you use this package, cite both this software artifact and the source paper. The source paper DOI is [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600). Machine-readable citation metadata is in `CITATION.cff`.
+If you use this package, cite both this software artifact and the source paper.
+The software artifact does not yet have a separate DOI unless one is added
+later. The source paper DOI is
+[10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394600).
+Machine-readable citation metadata is in `CITATION.cff`.
 
 ## License
 

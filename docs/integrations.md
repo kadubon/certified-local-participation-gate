@@ -1,6 +1,6 @@
 # Integrations
 
-No integrations are implemented in v0.1.0.
+No integrations are implemented in v0.1.1.
 
 Future adapters may map:
 

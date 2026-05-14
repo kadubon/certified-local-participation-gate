@@ -17,7 +17,7 @@ def write_model(path: Path, model: object) -> None:
 def test_version_json() -> None:
     result = runner.invoke(app, ["version", "--json"])
     assert result.exit_code == 0
-    assert '"version":"0.1.0"' in result.output
+    assert '"version":"0.1.1"' in result.output
 
 
 def test_decide_json(tmp_path: Path) -> None:

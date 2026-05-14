@@ -70,8 +70,6 @@ def evaluate_feasibility(ctx: DecisionContext) -> DecisionOutcome | None:
             ReasonCode.ACTION_NOT_FEASIBLE,
             observed={"requested_action": ctx.requested_action},
         )
-        return _scope_failure_outcome(
-            ctx, ReasonCode.ACTION_NOT_FEASIBLE, "action_not_feasible"
-        )
+        return _scope_failure_outcome(ctx, ReasonCode.ACTION_NOT_FEASIBLE, "action_not_feasible")
     ctx.add_check("requested_action_feasible", True)
     return None

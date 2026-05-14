@@ -8,7 +8,7 @@ from clpg.digest import sha256_digest
 from clpg.enums import ParticipationDecision, ReasonCode
 from clpg.models import CheckResult, DecisionTrace, ParticipationReceipt
 
-CLPG_VERSION = "0.1.0"
+CLPG_VERSION = "0.1.1"
 SCHEMA_VERSION = "1.0"
 
 

@@ -31,7 +31,7 @@ jobs:
           uv run clpg schema export "$tmpdir" --json
       - run: uv build
       - name: Local wheel smoke
-        run: uv run --with ./dist/clpg-0.1.0-py3-none-any.whl clpg version --json
+        run: uv run --with ./dist/clpg-0.1.1-py3-none-any.whl clpg version --json
 
   audit:
     runs-on: ubuntu-latest

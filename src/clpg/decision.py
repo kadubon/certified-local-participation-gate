@@ -211,9 +211,7 @@ def decide_participation(
             False,
             ReasonCode.SUCCESS_LOWER_BOUND_INSUFFICIENT,
             observed={"success_lower_bound": uncertainty.success_lower_bound},
-            threshold={
-                "min_success_lower_bound_for_act": policy.min_success_lower_bound_for_act
-            },
+            threshold={"min_success_lower_bound_for_act": policy.min_success_lower_bound_for_act},
         )
         verify_possible, _verify_reason = ctx.can_verify()
         if verify_possible:

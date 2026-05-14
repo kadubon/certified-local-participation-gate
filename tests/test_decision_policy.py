@@ -199,9 +199,7 @@ def test_claim_budget_demand_blocks_act() -> None:
 
 def test_claim_stake_demand_blocks_act() -> None:
     task = full_task()
-    task = task.model_copy(
-        update={"claim": ClaimSnapshot(requested_action="act", stake_demand=1)}
-    )
+    task = task.model_copy(update={"claim": ClaimSnapshot(requested_action="act", stake_demand=1)})
     receipt = decide(task=task)
     assert receipt.decision == ParticipationDecision.WITHDRAW
     assert ReasonCode.CLAIM_STAKE_EXCEEDS_POLICY in receipt.reason_codes
@@ -378,7 +376,7 @@ def test_requested_verify_uses_portfolio_before_task_evidence_gate() -> None:
     assert receipt.reason_codes == [ReasonCode.VERIFICATION_CAPACITY_AVAILABLE]
 
 
-def test_continue_maps_to_act_with_continue_reason() -> None:
+def test_continue_role_uses_v0_1_compatibility_mapping_to_act() -> None:
     task = full_task(role=ClaimRole.CONTINUE)
     receipt = decide(
         task=task,
@@ -386,6 +384,7 @@ def test_continue_maps_to_act_with_continue_reason() -> None:
     )
     assert receipt.decision == ParticipationDecision.ACT
     assert ReasonCode.CONTINUE_CONDITIONS_SATISFIED in receipt.reason_codes
+    assert receipt.decision_trace.terminal_rule == "continue_conditions_satisfied"
 
 
 def test_submission_harm_blocks_act() -> None:

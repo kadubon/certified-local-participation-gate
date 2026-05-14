@@ -10,11 +10,7 @@ TARGET_REQUIRED_ROLES = {ClaimRole.ASSIST, ClaimRole.VERIFY, ClaimRole.CONTINUE}
 
 def evaluate_claim(ctx: DecisionContext) -> DecisionOutcome | None:
     claim = ctx.task.claim
-    if (
-        ctx.policy.mode == PolicyMode.STRICT
-        and ctx.policy.require_claim_snapshot
-        and claim is None
-    ):
+    if ctx.policy.mode == PolicyMode.STRICT and ctx.policy.require_claim_snapshot and claim is None:
         ctx.add_check(
             "claim_snapshot_declared",
             False,
@@ -45,12 +41,10 @@ def evaluate_claim(ctx: DecisionContext) -> DecisionOutcome | None:
         return None
 
     action_conflicts = (
-        ctx.task.requested_action != "act"
-        and ctx.task.requested_action != claim.requested_action
+        ctx.task.requested_action != "act" and ctx.task.requested_action != claim.requested_action
     )
     role_conflicts = (
-        ctx.task.requested_role != ClaimRole.ACT
-        and ctx.task.requested_role != claim.requested_role
+        ctx.task.requested_role != ClaimRole.ACT and ctx.task.requested_role != claim.requested_role
     )
     if action_conflicts or role_conflicts:
         ctx.add_check(

@@ -46,6 +46,7 @@
 
 ## Citation
 
-- Confirm `CITATION.cff` includes the source paper under `preferred-citation`.
+- Confirm `CITATION.cff` includes the source paper under `preferred-citation`
+  or `references`, depending on the release metadata style.
 - Confirm the source paper DOI is present: `10.5281/zenodo.19394600`.
 - Confirm README links the DOI as the source paper DOI, not as a software artifact DOI.

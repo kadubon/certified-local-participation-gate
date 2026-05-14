@@ -1,6 +1,6 @@
 # Schemas
 
-JSON Schema export is the v0.1.0 interoperability boundary for tools and ports.
+JSON Schema export is the v0.1.x interoperability boundary for tools and ports.
 
 ```bash
 uv run clpg schema export ./schemas --json
@@ -39,3 +39,12 @@ A non-Python implementation should:
 6. verify receipt and ledger digest semantics.
 
 The schemas describe data shape. The conformance fixtures describe expected behavior.
+
+## Schema Version Naming
+
+`schema_version` identifies a schema family/version, not the package release
+version. For v0.1.1, existing values such as `"1.0"` are intentionally
+preserved because they are part of receipt and conformance surfaces.
+
+Namespaced schema identifiers such as `clpg.participation_receipt.v1` are
+deferred to v0.2.0 or a later compatibility-reviewed release.

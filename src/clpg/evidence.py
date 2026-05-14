@@ -9,9 +9,7 @@ from clpg.enums import ReasonCode
 def _missing_evidence(ctx: DecisionContext) -> list[str]:
     available = {block.evidence_id for block in ctx.evidence.evidence_blocks}
     declared_missing = list(ctx.evidence.missing_required_evidence)
-    computed_missing = [
-        item for item in ctx.evidence.required_evidence if item not in available
-    ]
+    computed_missing = [item for item in ctx.evidence.required_evidence if item not in available]
     return list(dict.fromkeys([*declared_missing, *computed_missing]))
 
 
