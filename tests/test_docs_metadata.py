@@ -26,6 +26,22 @@ def test_public_markdown_files_are_not_single_giant_lines() -> None:
         assert max(len(line) for line in lines) <= 320, f"{path} has an oversized line"
 
 
+def test_readme_has_first_time_reader_orientation() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "## Start Here" in readme
+    assert "## Which Mode Should I Use?" in readme
+    assert "The software artifact does not yet have a separate DOI" in readme
+
+
+def test_release_docs_allow_github_only_v0_1_1_release() -> None:
+    checklist = (ROOT / "docs" / "release-v0.1.1-checklist.md").read_text(encoding="utf-8")
+    assert "Create the `v0.1.1` git tag only after all local checks and pushed CI pass" in checklist
+    assert "Do not publish to PyPI for v0.1.1" in checklist
+    assert "Do not create a git tag during the maintenance patch implementation" not in checklist
+    assert not (ROOT / "AGENTS.md").exists()
+    assert not (ROOT / "PLAN_V0_1_1_MAINTENANCE.md").exists()
+
+
 def test_version_metadata_is_0_1_1() -> None:
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     assert 'version = "0.1.1"' in pyproject

@@ -17,6 +17,9 @@
 - Documented that `schema_version` is schema-family metadata and deferred
   namespaced schema identifiers.
 - Added maintenance-release and documentation sanity tests.
+- Updated GitHub Actions dependency versions through Dependabot.
+- Clarified the v0.1.1 GitHub-only release checklist and release artifact
+  boundary.
 
 ## 0.1.0 - 2026-05-14
 

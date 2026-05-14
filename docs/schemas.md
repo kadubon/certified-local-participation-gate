@@ -40,6 +40,18 @@ A non-Python implementation should:
 
 The schemas describe data shape. The conformance fixtures describe expected behavior.
 
+## What Schemas Prove
+
+Schemas can prove that a JSON document has the expected field names, types,
+enum strings, and digest-shaped values. They cannot prove that a certificate is
+true, that an authority record was issued by the right institution, or that an
+uncertainty bound is calibrated.
+
+For that reason, schema validation is only the first portability check. A
+complete implementation must also reproduce canonical JSON, digest generation,
+the ordered evaluator pipeline, receipt verification, ledger verification, and
+the conformance fixture outcomes.
+
 ## Schema Version Naming
 
 `schema_version` identifies a schema family/version, not the package release

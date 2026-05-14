@@ -39,10 +39,28 @@
 
 - Do not publish to PyPI for v0.1.1.
 - Do not add a PyPI publishing workflow.
-- Do not create a git tag during the maintenance patch implementation.
-- Do not create a GitHub Release during the maintenance patch implementation.
+- Commit only source, docs, tests, and workflow metadata.
+- Do not commit `dist/`, cache directories, temporary schema exports, local
+  receipts, or local ledgers.
+- Create the `v0.1.1` git tag only after all local checks and pushed CI pass.
+- Create the GitHub Release only from the verified `v0.1.1` tag.
+- Attach local wheel/sdist artifacts to the GitHub Release, but do not track
+  those artifacts in git.
 - Dependabot uses the `pip` ecosystem for Python dependency metadata because a
   uv-specific Dependabot ecosystem is not used here.
+
+## GitHub Release Steps
+
+1. Confirm the working tree contains no distribution artifacts.
+2. Commit and push the release-readiness changes.
+3. Wait for CI, CodeQL, dependency review, and secret scanning to pass.
+4. Create annotated tag `v0.1.1` from the verified commit.
+5. Build local artifacts with `uv build`.
+6. Create GitHub Release `CLPG v0.1.1` and attach:
+   - `clpg-0.1.1-py3-none-any.whl`
+   - `clpg-0.1.1.tar.gz`
+7. Confirm the release notes state GitHub-only distribution and no PyPI release.
+8. Remove local `dist/` after publishing the GitHub Release.
 
 ## Deferred To v0.2.0
 

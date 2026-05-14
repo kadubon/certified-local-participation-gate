@@ -14,6 +14,25 @@ Source paper DOI: [10.5281/zenodo.19394600](https://doi.org/10.5281/zenodo.19394
 v0.1.1 is a small reference kernel, not a full implementation of every theorem
 in the paper.
 
+## Start Here
+
+Use CLPG when an agent runtime, workflow runner, or local automation needs a
+repeatable answer before doing work:
+
+1. collect declared JSON records for the task, claim, agent, authority,
+   evidence, uncertainty, attribution, budget, and policy;
+2. call the Python API or CLI;
+3. inspect the `ParticipationReceipt`;
+4. optionally append that receipt to a local JSONL ledger.
+
+The important operational boundary is that CLPG checks the declared record set.
+It does not discover missing facts, grant authority, or decide whether the task
+is objectively correct. In strict mode, missing declared records cause the gate
+to degrade instead of silently allowing `act`.
+
+For a first run, use the demo quickstart. For behavior that matches the paper's
+certified-snapshot premise, inspect the strict conformance fixture after that.
+
 ## What Problem This Solves
 
 Agent systems often start work before the basic participation question has been made explicit:
@@ -130,6 +149,16 @@ This v0.1.1 release is GitHub/source distribution only. There is no PyPI publish
 uv sync --locked --dev
 uv run clpg version
 ```
+
+## Which Mode Should I Use?
+
+Use demo mode only to learn the API or to write small examples. It relaxes
+strict certificate and feasibility requirements.
+
+Use strict mode for operational gate testing. Strict mode treats the
+`ClaimSnapshot` as the canonical requested role/action, requires finite feasible
+masks and certificate digests, checks authority identity, and fails closed when
+records are missing or inconsistent.
 
 ## Demo Quickstart
 
@@ -271,9 +300,12 @@ See `docs/porting.md` for the recommended porting checklist.
 ```bash
 uv lock
 uv sync --locked --dev
+uv run ruff format --check .
 uv run pytest
 uv run ruff check .
 uv run mypy src
+uv run clpg conformance run examples/conformance --json
+uv run clpg schema export ./schemas --json
 uv build
 ```
 
@@ -288,6 +320,8 @@ uv build
 - `docs/threat-model.md`: what CLPG detects and what remains out of scope.
 - `docs/porting.md`: guidance for multi-language implementations.
 - `docs/glossary.md`: short definitions of recurring terms.
+- `docs/release-v0.1.1-checklist.md`: local and GitHub-only release gates.
+- `CHANGELOG.md`: release history.
 
 ## Citation
 

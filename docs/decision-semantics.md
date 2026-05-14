@@ -51,6 +51,18 @@ Strict mode is the default. It requires `ClaimSnapshot`, service certificate dig
 
 Demo mode is an explicit relaxation for examples. It allows legacy task fields, implicit feasibility, and missing certificate digests. Demo receipts are useful for learning the API, not for strict operational claims.
 
+## Reading A Trace
+
+`DecisionTrace.steps` is the ordered list of checks that led to the terminal
+rule. `ParticipationReceipt.checks` carries the same check sequence in the
+receipt payload. The final `terminal_rule` names the first rule that decided the
+outcome.
+
+For example, a valid source-paper `continue` claim reaches the terminal rule
+`continue_conditions_satisfied`. The receipt decision is still `act` in
+v0.1.x, so consumers that need to distinguish this case should inspect the
+reason code or terminal rule.
+
 ## Escalation
 
 `escalate` is emitted only when `allow_escalate=True` and `escalation_target` is declared. It is an implementation fallback, not a source-paper role.

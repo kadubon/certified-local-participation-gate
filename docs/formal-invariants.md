@@ -23,7 +23,8 @@ Implemented invariants:
 - `assist` does not authorize protected action when protected-action authority is missing;
 - receipts bind all input digests;
 - receipt verification includes both decision digest and receipt digest;
-- append-only ledgers detect tampering.
+- append-only ledgers detect tampering;
 - anchored ledger verification detects tail deletion when expected head/count are supplied.
 
-Restricted monotonicity is tested only for scalar strict thresholds supported by the implementation. No theory-wide monotonicity claim is made.
+Restricted monotonicity is tested only for scalar strict thresholds supported by
+the implementation. No theory-wide monotonicity claim is made.

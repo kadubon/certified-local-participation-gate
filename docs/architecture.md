@@ -11,6 +11,21 @@ declared records
   -> optional LedgerRecord
 ```
 
+## First-Time Mental Model
+
+CLPG is not an agent framework. It is the gate that can sit immediately before
+an agent executes, delegates, verifies, or exits a task round.
+
+The package has three layers:
+
+- typed snapshots that make the declared public state explicit;
+- small evaluators that each check one theory-facing obligation;
+- receipt and ledger utilities that make the local decision replayable.
+
+This structure is intentional. A maintainer can audit one evaluator without
+reading a monolithic planner, and a port author can translate each evaluator
+into another language while preserving the same ordered trace.
+
 ## Evaluator Pipeline
 
 ```mermaid
@@ -30,7 +45,9 @@ flowchart TD
   M --> N["ParticipationReceipt"]
 ```
 
-Each evaluator is a small module with one public `evaluate_*` function. This keeps the implementation easier to audit and easier to port to another language.
+Each evaluator is a small module with one public `evaluate_*` function. This
+keeps the implementation easier to audit and easier to port to another
+language.
 
 ## Strict Inputs
 
@@ -49,6 +66,9 @@ Strict mode requires:
 
 ## Core Boundaries
 
-The core package has no network, LLM, database, or cloud dependency. All decisions are functions of declared records and policy thresholds.
+The core package has no network, LLM, database, or cloud dependency. All
+decisions are functions of declared records and policy thresholds.
 
-The implementation intentionally does not import sibling projects. Future integrations should adapt their receipts into CLPG input models rather than becoming runtime dependencies.
+The implementation intentionally does not import sibling projects. Future
+integrations should adapt their receipts into CLPG input models rather than
+becoming runtime dependencies.
