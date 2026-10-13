@@ -44,4 +44,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: uv sync --locked --dev
-      - run: uv run pip-audit
+      - run: uv run pip-audit --skip-editable
